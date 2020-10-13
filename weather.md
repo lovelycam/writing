@@ -1,6 +1,6 @@
-### Sample: Asynchronous API Calls in Python
-###### Chris Campbell
+### Asynchronous API Calls in Python (Sample)
 ***
+As an example, we'll use the [Open Weather Map API](https://openweathermap.org) to retrieve and print the current temperature.
 
 ```python
 import aiohttp
@@ -21,3 +21,4 @@ async def main():
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
+```
