@@ -5,9 +5,9 @@ A synchronous call is like ordering a latte at the coffee bar, then waiting ther
 
 An asynchronous call is like ordering a latte at the coffee bar, then sitting down at a table and reading your book. The cashier hands your order off to a barista and helps the next customer. When the barista makes your latte, you go and retrieve it. Enjoy.
 
-The same concepts apply to network API calls. Synchronous calls wait and block the main process until the desired information is retrieved. Asynchronous calls assign functionality to a separate process -- the desired information is retrieved in this separate process and then returned to the main process. 
+The same concepts apply to network API calls. Synchronous calls wait and block the main process until the desired information is retrieved. Asynchronous calls assign functionality to a separate process, with the desired information retrieved and returned to the main process. 
 
-Both approaches "wait", but the difference is whether or not this waiting blocks the main process. Synchronous calls block. Asynchronous calls do not.
+Both approaches *wait*, but the difference is whether or not this blocks the main process. Synchronous calls block. Asynchronous calls do not.
 
 This document describes a simple asynchronous approach for retrieving and displaying weather information. We'll use the [OpenWeatherMap API](https://openweathermap.org) to retrieve the current temperature for a given US zipcode.
 
@@ -62,7 +62,7 @@ After defining common variables (`base_url` and `endpoint`), we create a [Client
 async with aiohttp.ClientSession() as session:
 ```
 
-After creating the client session, we use `session` to make the actual network `get()` call. We again make use of an `async with` block to do so, assigning the call's eventual result to a variable called `response`.
+After creating the client session, we use `session` to make the actual network `get()` call, providing parameters that the API accepts. We again make use of an `async with` block to do so, assigning the call's result to a variable called `response`. Consult the [OpenWeatherMap API](https://openweathermap.org/current#one) for information on the endpoint's parameters and possible values.
 
 ```python
 async with session.get(base_url + endpoint +
@@ -77,4 +77,11 @@ Specifying a function as `async` requires a subsequent `await` within the functi
 network_response = await response.text()
 ```
 
-Finally we parse the JSON response and print this response to the console.
+Finally, the `loads()` function provided by the `json` module converts our JSON response to a dictionary. This dictionary is accessed by subscript to obtain the temperature. The standard `print()` function outputs the result (the temperature must first be converted from `float` to `string` via Python's built-in `str()` function.
+
+```python
+json_dictionary = json.loads(network_response)
+print('Temperature in Fahrenheit: ' + str(json_dictionary['main']['temp']))
+```
+
+Executing the program calls `asyncio.run(get_temperature())`, which runs our `get_temperature()` function asynchronously. 
