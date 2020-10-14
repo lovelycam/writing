@@ -10,7 +10,7 @@ The takeaway is whether or not there's more than one barista available. If there
 
 In technical terms, asynchronous calls hand off functionality to a background process, so as not to "block" further execution in the main process. The desired information is retrieved in the background then returned to the main process. In contrast, synchronous calls wait and block the main process until the desired information is retrieved.
 
-For further discussion on asynchronous and synchronous programming concepts, refer to [this Mozilla article](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Concepts) 
+For further discussion on asynchronous and synchronous programming concepts, refer to [this Mozilla article](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Concepts). 
 
 This document describes a simple asynchronous approach, in Python, for retrieving and displaying weather information. We'll use the [OpenWeatherMap API](https://openweathermap.org) to retrieve the current temperature for a given US zipcode.
 
