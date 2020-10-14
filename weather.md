@@ -14,7 +14,7 @@ For further discussion on asynchronous and synchronous programming concepts, ref
 
 This document describes a simple asynchronous approach, in Python, for retrieving and displaying weather information. We'll use the [OpenWeatherMap API](https://openweathermap.org) to retrieve the current temperature for a given US zipcode.
 
-##### Example Python Code
+##### Example Python 3 Code
 ```python
 import aiohttp
 import asyncio
@@ -39,3 +39,6 @@ loop.run_until_complete(main())
 ```
 Temperature in Fahrenheit: 64.13
 ```
+
+##### Implementation Details
+
