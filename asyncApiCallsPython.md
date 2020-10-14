@@ -5,7 +5,7 @@ A synchronous call is like ordering a latte at the coffee bar, then waiting ther
 
 An asynchronous call is like ordering a latte at the coffee bar, then sitting down at a table and reading your book. The cashier hands your order off to a barista and helps the next customer. When the barista makes your latte, you go and retrieve it. Enjoy.
 
-The same concepts apply to network API calls. Synchronous calls wait and block the main process until the desired information is retrieved. Asynchronous calls assign functionality to a separate process. The desired information is retrieved in this separate process and then returned to the main process. 
+The same concepts apply to network API calls. Synchronous calls wait and block the main process until the desired information is retrieved. Asynchronous calls assign functionality to a separate process -- the desired information is retrieved in this separate process and then returned to the main process. 
 
 Both approaches "wait", but the difference is whether or not this waiting blocks the main process. Synchronous calls block. Asynchronous calls do not.
 
@@ -40,18 +40,41 @@ Temperature in Fahrenheit: 64.13
 ```
 
 ##### Implementation Details
-What does the above code do? Basically, the `get_temperature()` function calls the remote weather API, waits for a JSON response, parses this response, and then prints a temperature in the console. All of this functionality runs asynchronously via `asyncio.run()`. 
+What does the above code do? Basically, the `get_temperature()` function calls the remote weather API, waits for a JSON response, parses this response, and then prints the current temperature in the console. All of this functionality runs asynchronously via `asyncio.run()`. 
 
-In Python 3.7, `asyncio.run()` is provided in the `asyncio` module. We import `asyncio`, as well as the other two required modules, at the top of the Python file.
+In Python 3.7, the `asyncio` module provides `asyncio.run()`. We import `asyncio`, as well as the other two required modules, at the top of the Python file.
 
 ```python
 import aiohttp
 import asyncio
 import json
 ```
-We then implement `get_temperature()`. Notice the `async` keyword in the function definition. This tells Python that the function will wait asynchronously for an API response. 
+
+We then define `get_temperature()`. Notice the `async` keyword in the function definition. This tells Python that the function will wait asynchronously for an API response. 
 
 ```python
 async def get_temperature():
 ``` 
 
+After defining common variables (`base_url` and `endpoint`), we create a [Client Session](https://docs.aiohttp.org/en/stable/client_reference.html) and assign it to a variable called `session`. This happens within the context of an `async with` block. The important takeaway for `async with` is that it provides an automatic way to clean up after the program exits the block. 
+
+```python
+async with aiohttp.ClientSession() as session:
+```
+
+After creating the client session, we use `session` to make the actual network `get()` call. We again make use of an `async with` block to do so, assigning the call's eventual result to a variable called `response`.
+
+```python
+async with session.get(base_url + endpoint +
+                       'zip=94134&'
+                       'units=imperial&'
+                       'appid={APP KEY}') as response:
+```
+
+Specifying a function as `async` requires a subsequent `await` within the function implementation. In this case, we `await` the text result of `response`.
+
+```python
+network_response = await response.text()
+```
+
+Finally we parse the JSON response and print this response to the console.
