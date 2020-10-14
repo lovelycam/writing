@@ -1,11 +1,20 @@
 ### Asynchronous Network API Calls in Python
 ***
-Asynchronous programming is like ordering coffee at the cash register, then sitting down and reading a book. The cashier helps the next customer while another barista makes your coffee. When your number is called, you go and retrieve your coffee.
+##### Context
 
-In contrast, synchronous programming is like ordering coffee at the cash register and then waiting there for the cashier to make your coffee. You stand there until the coffee is done.
+An *asynchronous* call is like ordering a latte at the coffee bar, then sitting down at a table and reading a book. The cashier helps the next customer while a barista makes your latte. When your number is called, you go and retrieve your latte.
 
-As an example API, we'll use the [OpenWeatherMap API](https://openweathermap.org) to asynchronously retrieve the current temperature.
+In contrast, a *synchronous* call is like ordering a latte at the coffee bar and then waiting there for the cashier to make your latte. You stand there until the latte is done. There is no other barista available to help.
 
+The key takeaway is whether or not there is more than one barista available to make your latte. If there's only one barista, then you and everyone behind you in line has to wait for the barista to finish. If there is more than one barista, the making of the latte can be handed off, while customer orders can continue to be taken.
+
+In technical terms, asynchronous calls hand off functionality to a background process, so as not to "block" further execution in the main process. Synchronous calls wait and block the main process until the desired information is retrieved.
+
+This document describes a simple asynchronous strategy for retrieving and displaying weather information.
+
+As an example API, we'll use the [OpenWeatherMap API](https://openweathermap.org) to asynchronously retrieve the current temperature for a given US zipcode.
+
+##### Example Python Code
 ```python
 import aiohttp
 import asyncio
