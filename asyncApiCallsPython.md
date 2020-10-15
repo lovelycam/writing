@@ -77,11 +77,11 @@ Specifying a function as `async` requires a subsequent `await` within the functi
 network_response = await response.text()
 ```
 
-Finally, the `loads()` function provided by the `json` module converts our JSON response to a dictionary. This dictionary is accessed by subscript to obtain the temperature. The standard `print()` function outputs the result (the temperature must first be converted from `float` to `string` via Python's built-in `str()` function.
+The `loads()` function provided by the `json` module converts our JSON response to a dictionary. This dictionary is accessed by subscript to obtain the temperature. The standard `print()` function outputs the result (the temperature must first be converted from `float` to `string` via Python's built-in `str()` function).
 
 ```python
 json_dictionary = json.loads(network_response)
 print('Temperature in Fahrenheit: ' + str(json_dictionary['main']['temp']))
 ```
 
-Executing the program calls `asyncio.run(get_temperature())`, which runs our `get_temperature()` function asynchronously. 
+Finally, executing the program calls `asyncio.run(get_temperature())`, which runs our `get_temperature()` function asynchronously. 
