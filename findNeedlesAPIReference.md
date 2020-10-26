@@ -4,17 +4,17 @@
 public static void findNeedles(String haystack, String[] needles)
 ```
 
-Searches a `haystack` string for values specified in the `needles` string array
+Searches a `haystack` string for values specified in the `needles` string array.
 
 #### Parameters
 
 Parameter | Explanation
 ------------ | -------------
-`haystack` | The string to be searched
-`needles` | The string array values to search for (maximum of 5)
+`haystack` | The string to be searched.
+`needles` | The string array values to search for (maximum of 5).
 
 #### Output
-The `needles` strings and the number of times each string was found
+The `needles` strings and the number of times each string was found.
 
 #### Usage
 ```java
