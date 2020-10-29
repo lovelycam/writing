@@ -86,4 +86,4 @@ json_dictionary = json.loads(network_response)
 print('Temperature in Fahrenheit: ' + str(json_dictionary['main']['temp']))
 ```
 
-Finally, executing the program calls `asyncio.run(get_temperature())`, which runs your `get_temperature()` function asynchronously. 
+Finally, executing the program calls `asyncio.run(get_temperature())`, which runs your function asynchronously. 
