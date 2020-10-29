@@ -11,7 +11,7 @@ Both approaches *wait*, but the difference is whether or not the call blocks. Sy
 
 This document describes a simple asynchronous approach for retrieving and displaying weather information. We'll use the [OpenWeatherMap API](https://openweathermap.org) to retrieve the current temperature for a given US zipcode.
 
-For further discussion on asynchronous and synchronous programming, refer to [this Mozilla article](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Concepts).
+> For further discussion on asynchronous and synchronous programming, refer to [this Mozilla article](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Concepts).
 
 ##### Example Python 3.7 Code
 ```python
