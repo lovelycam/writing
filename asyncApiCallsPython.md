@@ -7,7 +7,7 @@ An *asynchronous* call is like ordering a latte at the coffee bar, then sitting 
 
 The same concepts apply to network API calls. Synchronous calls wait and block the process until the desired information is retrieved. Asynchronous calls assign functionality to a separate process, with the desired information retrieved and returned to the original process. 
 
-Both approaches *wait*, but the difference is whether or not the call blocks. Synchronous calls block. Asynchronous calls do not.
+Both calls *wait*, but the difference is whether or not the call blocks. Synchronous calls block. Asynchronous calls do not.
 
 This document describes a simple asynchronous approach for retrieving and displaying weather information. You will use the [OpenWeatherMap API](https://openweathermap.org) to retrieve the current temperature for a given US zipcode.
 
