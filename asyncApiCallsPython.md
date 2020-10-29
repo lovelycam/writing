@@ -58,13 +58,13 @@ Next, define `get_temperature()`. The `async` keyword tells Python that the func
 async def get_temperature():
 ``` 
 
-After defining common variables (`base_url` and `endpoint`), you create a [Client Session](https://docs.aiohttp.org/en/stable/client_reference.html) and assign it to the variable, `session`.
+After defining common variables (`base_url` and `endpoint`), you create a [Client Session](https://docs.aiohttp.org/en/stable/client_reference.html) and assign it to a variable called `session`.
 
 ```python
 async with aiohttp.ClientSession() as session:
 ```
 
-After creating the client session, you use `session` to make the actual network `get()` call. Assign the call's result to a variable called `response`. Consult the [OpenWeatherMap API](https://openweathermap.org/current#one) for information on the endpoint's parameters and possible values.
+You then make the network `get()` call. Assign the result to a variable called `response`. Consult the [OpenWeatherMap API](https://openweathermap.org/current#one) for information on the endpoint's parameters and possible values.
 
 ```python
 async with session.get(base_url + endpoint +
@@ -73,13 +73,13 @@ async with session.get(base_url + endpoint +
                        'appid={APP KEY}') as response:
 ```
 
-Specifying a function as `async` requires a subsequent `await` within the function implementation. In this case, you `await` the text result of `response`.
+Specifying a function as `async` requires a subsequent `await`. In this case, you `await` the text result of `response`.
 
 ```python
 network_response = await response.text()
 ```
 
-The `loads()` function converts the JSON response to a dictionary. You subscript the dictionary to obtain the temperature. The standard `print()` function outputs the result (the temperature must first be converted from `float` to `string` via Python's built-in `str()` function).
+The `loads()` function converts the JSON response to a dictionary. You subscript the dictionary to obtain the temperature, then `print()` the result (the temperature must be converted from `float` to `string` via Python's built-in `str()` function).
 
 ```python
 json_dictionary = json.loads(network_response)
