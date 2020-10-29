@@ -79,7 +79,7 @@ Specifying a function as `async` requires a subsequent `await`. In this case, yo
 network_response = await response.text()
 ```
 
-The `loads()` function converts the JSON response to a dictionary. You subscript the dictionary to obtain the temperature, then `print()` the result (the temperature must be converted from `float` to `string` via Python's built-in `str()` function).
+The `loads()` function converts the JSON response to a dictionary. You subscript the dictionary to obtain the temperature, then `print()` the result.
 
 ```python
 json_dictionary = json.loads(network_response)
