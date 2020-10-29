@@ -64,7 +64,7 @@ After defining common variables (`base_url` and `endpoint`), you create a [Clien
 async with aiohttp.ClientSession() as session:
 ```
 
-You then make the network `get()` call. Assign the result to a variable called `response`. Consult the [OpenWeatherMap API](https://openweathermap.org/current#one) for information on the endpoint's parameters and possible values.
+You then make the network `get()` call and assign the result to a variable called `response`. Consult the [OpenWeatherMap API](https://openweathermap.org/current#one) for information on the endpoint's parameters and possible values.
 
 ```python
 async with session.get(base_url + endpoint +
