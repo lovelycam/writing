@@ -40,9 +40,7 @@ Temperature in Fahrenheit: 64.13
 ```
 
 #### Implementation Details
-What does the code do? 
-
-Your `get_temperature()` function performs the following:
+Your `get_temperature()` function does the following:
 1. Calls the remote weather API
 2. Waits for a JSON response
 3. Parses the response
@@ -64,13 +62,13 @@ Next, define `get_temperature()`. The `async` keyword tells Python that the func
 async def get_temperature():
 ``` 
 
-After defining common variables (`base_url` and `endpoint`), you create a [Client Session](https://docs.aiohttp.org/en/stable/client_reference.html) and assign it to a variable called `session`.
+After defining common variables (`base_url` and `endpoint`), create a [Client Session](https://docs.aiohttp.org/en/stable/client_reference.html) and assign it to a variable called `session`.
 
 ```python
 async with aiohttp.ClientSession() as session:
 ```
 
-You then make the network `get()` call and assign the result to a variable called `response`. Consult the [OpenWeatherMap API](https://openweathermap.org/current#one) for information on the endpoint's parameters and possible values.
+Then call `get()` and assign the result to a variable called `response`. Consult the [OpenWeatherMap API](https://openweathermap.org/current#one) for information on the endpoint's parameters and possible values.
 
 ```python
 async with session.get(base_url + endpoint +
@@ -85,11 +83,15 @@ Specifying a function as `async` requires a subsequent `await`. In this case, yo
 network_response = await response.text()
 ```
 
-The `loads()` function converts the JSON response to a dictionary. You subscript the dictionary to obtain the temperature, then `print()` the result.
+The `json.loads()` function converts your JSON response to a dictionary. Subscript the dictionary to obtain the temperature, then `print()` the result.
 
 ```python
 json_dictionary = json.loads(network_response)
 print('Temperature in Fahrenheit: ' + str(json_dictionary['main']['temp']))
 ```
 
-Finally, executing the program calls `asyncio.run(get_temperature())`, which runs your function asynchronously. 
+Finally, run the program and verify the results. 
+
+```python
+python asyncApiCallsPython.py
+```
