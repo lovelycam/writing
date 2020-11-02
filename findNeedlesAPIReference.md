@@ -8,7 +8,7 @@ Searches a `haystack` string for values specified in the `needles` string array.
 
 #### Parameters
 
-Parameter | Explanation
+Parameter | Description
 ------------ | -------------
 `haystack` | The string to be searched.
 `needles` | The string array values to search for (maximum of 5).
