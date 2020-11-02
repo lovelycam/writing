@@ -42,9 +42,15 @@ Temperature in Fahrenheit: 64.13
 ##### Implementation Details
 What does the above code do? 
 
-The `get_temperature()` function calls the remote weather API, waits for a JSON response, parses this response, and then prints the current temperature in the console. All of this functionality runs asynchronously via `asyncio.run()`. 
+`get_temperature()` performs the following:
+1. Calls the remote weather API
+2. Waits for a JSON response
+3. Parses the response
+4. Prints the current temperature in the console 
 
-In Python 3.7, the `asyncio` module provides `asyncio.run()`. Import `asyncio` and the other two required modules, at the top of the Python file.
+All of this functionality runs asynchronously via `asyncio.run()`. 
+
+In Python 3.7, the `asyncio` module provides `asyncio.run()`. At the top of the Python file, import `asyncio` and the other two required modules.
 
 ```python
 import aiohttp
