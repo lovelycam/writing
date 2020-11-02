@@ -41,10 +41,10 @@ Temperature in Fahrenheit: 64.13
 
 #### Implementation Details
 Your `get_temperature()` function does the following:
-1. Calls the remote weather API
-2. Waits for a JSON response
-3. Parses the response
-4. Prints the current temperature in the console 
+1. Calls the remote weather API.
+2. Waits for a JSON response.
+3. Parses the response.
+4. Prints the current temperature in the console.
 
 All of this functionality runs asynchronously via `asyncio.run()`. 
 
