@@ -1,6 +1,6 @@
 ### Asynchronous Network API Calls in Python 3.7
 ***
-##### Context
+#### Context
 A *synchronous* call is like ordering a latte at the coffee bar, then waiting there for the cashier to make your latte. No other barista can help. You stand at the bar until the the cashier makes the latte. The next customer can order when your latte has been given to you.
 
 An *asynchronous* call is like ordering a latte at the coffee bar, then sitting down at a table and reading your book. The cashier hands your order off to a barista and helps the next customer. When the barista makes your latte, you go and retrieve it. Enjoy.
@@ -13,7 +13,7 @@ This document describes a simple asynchronous approach for retrieving and displa
 
 For further discussion on asynchronous and synchronous programming, refer to [this Mozilla article](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Concepts).
 
-##### Example Python 3.7 Code
+#### Example Python 3.7 Code
 ```python
 import aiohttp
 import asyncio
@@ -34,15 +34,15 @@ async def get_temperature():
 
 asyncio.run(get_temperature())
 ```
-##### Output
+#### Output
 ```
 Temperature in Fahrenheit: 64.13
 ```
 
-##### Implementation Details
-What does the above code do? 
+#### Implementation Details
+What does the code do? 
 
-`get_temperature()` performs the following:
+Your `get_temperature()` function performs the following:
 1. Calls the remote weather API
 2. Waits for a JSON response
 3. Parses the response
