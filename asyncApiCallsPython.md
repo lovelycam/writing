@@ -1,7 +1,7 @@
 ### Asynchronous Network API Calls in Python 3.7
 ***
 #### Context
-A *synchronous* call is like ordering a latte at the coffee bar, then waiting there for the cashier to make your latte. No other barista can help. You stand at the bar until the the cashier makes the latte. The next customer can order when your latte has been given to you.
+A *synchronous* call is like ordering a latte at the coffee bar, then waiting there for the cashier to make your latte. No other barista can help. You stand at the bar until the cashier makes the latte. The next customer can order when your latte has been given to you.
 
 An *asynchronous* call is like ordering a latte at the coffee bar, then sitting down at a table and reading your book. The cashier hands your order off to a barista and helps the next customer. When the barista makes your latte, you go and retrieve it. Enjoy.
 
